@@ -16,17 +16,22 @@ public class jugador1 {
      * @return Columna on fer el moviment
      */
     static int profunditat;
-    
+    static boolean acaba;
+    static int coloca;
     
     public int moviment(Tauler t, int color){
         int max=0;
         if(color==1){
             for(int i=0;i<t.getMida();++i)
             {
-                if(t.solucio(i,1))max=1000/profunditat;
-                if(t.solucio(i,-1) && max<999) max=999/profunditat;
+                if(t.solucio(i,1)){
+                    coloca=i;
+                    acaba=true;   
+                }
+                if(t.solucio(i,-1)) max=999/profunditat;
                 
             }
+            
         }
         else{
              for(int i=0;i<t.getMida();++i)
