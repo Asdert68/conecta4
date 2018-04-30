@@ -15,12 +15,12 @@ public class jugador1 implements Jugador{
      * @param color  Color de la peça que possarà
      * @return Columna on fer el moviment
      */
-    static int profunditat=6;
-    static int colorP=0;
-    static boolean acaba=false;
+    private int profunditat=6;
+    private int colorP=0;
+    
     private Integer InfinitPositiu = Integer.MAX_VALUE;
     
-    jugador1(int i, boolean b) {
+    jugador1(int i) {
         profunditat = i;
         
     }
@@ -32,7 +32,7 @@ public class jugador1 implements Jugador{
         int actualM=0;
         int ElMejor=0;
         
-        for(int i=0;i<t.getMida()& !acaba;++i)
+        for(int i=0;i<t.getMida();++i)
         {
             if(t.movpossible(i)){
                 Tauler aux= new Tauler(t);
@@ -40,7 +40,7 @@ public class jugador1 implements Jugador{
                 if(aux.solucio(i,color)){
                     return i;
                 }
-                ElMejor=contrario(aux,InfinitPositiu,-color,profunditat);
+                ElMejor=minimitzar(aux,-InfinitPositiu,InfinitPositiu,-color,profunditat);
                 if(actualM<ElMejor || !t.movpossible(coloca)){
                     coloca=i;
                     actualM=ElMejor;
