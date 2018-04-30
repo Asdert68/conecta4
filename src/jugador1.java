@@ -29,7 +29,7 @@ public class jugador1 implements Jugador{
     public int moviment(Tauler t, int color){
         colorP=color;
         int coloca=0;
-        int actualM=0;
+        int actualM=-InfinitPositiu;
         int ElMejor=0;
         
         for(int i=0;i<t.getMida();++i)
@@ -40,8 +40,8 @@ public class jugador1 implements Jugador{
                 if(aux.solucio(i,color)){
                     return i;
                 }
-                ElMejor=minimitzar(aux,-InfinitPositiu,InfinitPositiu,-color,profunditat);
-                if(actualM<ElMejor || !t.movpossible(coloca)){
+                ElMejor=minimitzar(aux,-InfinitPositiu,InfinitPositiu,profunditat,color);
+                if(ElMejor>actualM || !t.movpossible(coloca)){
                     coloca=i;
                     actualM=ElMejor;
                 }
