@@ -78,9 +78,9 @@ public class jugador1 implements Jugador{
         for(int i = 0; i < t.getMida(); i++){
             if(t.movpossible(i)){
                 Tauler aux = new Tauler(t);
-                aux.afegeix(i, oponent(jugador));
-                if (aux.solucio(i, oponent(jugador))) {
-                    return InfinitNegatiu;
+                aux.afegeix(i, -jugador);
+                if (aux.solucio(i, -jugador)) {
+                    return -InfinitPositiu;
                 }
                 beta = Math.min(beta, maximitzar(aux, alfa, beta, profunditat-1, jugador));
                 if(beta <= alfa) return beta;
