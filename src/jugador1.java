@@ -11,7 +11,7 @@
 public class jugador1 implements Jugador{
     
     private int profunditat=6;    
-    private Integer InfinitPositiu = Integer.MAX_VALUE;
+    private final Integer InfinitPositiu = Integer.MAX_VALUE;
     
     jugador1(int i) {
         profunditat = i;
@@ -55,6 +55,7 @@ public class jugador1 implements Jugador{
      * Retorna el nom del jugador que es dona al crear-lo
      * @return Nom del jugador
      */
+    @Override
     public String nom(){
         
         return null;
